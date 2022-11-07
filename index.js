@@ -2,11 +2,11 @@ const express = require('express');
 const { connection } = require('./Config/db');
 const { userRouter } = require('./Router/auth.router');
 require("dotenv").config();
-
+const cors = require("cors")
 
 const app=express();
 const port = process.env.PORT || 8000
-
+app.use(cors());
 app.use(express.json());
 
 app.use("/auth",userRouter)
